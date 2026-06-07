@@ -1,0 +1,35 @@
+name: Auto Preprocessing
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:  # bisa trigger manual
+
+jobs:
+  preprocessing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12.7'
+
+      - name: Install dependencies
+        run: |
+          pip install pandas scikit-learn numpy
+
+      - name: Run preprocessing
+        run: |
+          cd preprocessing
+          python automate_Aisyah-Azzahrah.py
+
+      - name: Commit hasil preprocessing
+        run: |
+          git config --global user.email 'actions@github.com'
+          git config --global user.name 'GitHub Actions'
+          git add preprocessing/namedataset_preprocessing/
+          git commit -m 'Auto: update preprocessing results' || echo 'No changes'
+          git push
