@@ -94,11 +94,12 @@ def preprocess_pipeline(input_path, output_path, target_col):
 if __name__ == '__main__':
     # Pastikan path input sesuai dengan nama file di file browser Anda
     # Karena file dataset.csv ada di root folder, gunakan '/content/dataset.csv'
-    X_train, X_test, y_train, y_test = preprocess_pipeline(
-        input_path='/content/dataset.csv',
-        output_path='/content/dataset_clean.csv',
-        target_col='Heart_ stroke'  # Ini adalah kolom target di dataset Anda
-    )
+    # Bagian bawah file automate_aisyah_azzahrah.py
+X_train, X_test, y_train, y_test = preprocess_pipeline(
+    input_path='../namedataset_raw/dataset.csv',
+    output_path='namedataset_preprocessing/dataset_clean.csv',  # ← sudah benar, tidak perlu diganti
+    target_col='Heart_ stroke'
+)
     print('Preprocessing selesai!')
     print('Shape X_train:', X_train.shape)
     print('Shape X_test:', X_test.shape)
