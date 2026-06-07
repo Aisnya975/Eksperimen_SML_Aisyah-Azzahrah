@@ -24,7 +24,7 @@ jobs:
       - name: Run preprocessing
         run: |
           cd preprocessing
-          python automate_Aisyah-Azzahrah.py
+          python automate_aisyah_azzahrah.py
 
       - name: Commit hasil preprocessing
         run: |
