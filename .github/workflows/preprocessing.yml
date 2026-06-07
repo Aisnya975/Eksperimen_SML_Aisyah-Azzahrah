@@ -3,7 +3,10 @@ name: Auto Preprocessing
 on:
   push:
     branches: [ main ]
-  workflow_dispatch:  # bisa trigger manual
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   preprocessing:
